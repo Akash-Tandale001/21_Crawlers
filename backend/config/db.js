@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 
-const mongoURL = process.env.REACT_APP_MONGODB_CONNECTION_url;
+const mongoURL = process.env.REACT_APP_MONGODB_CONNECTION_URL;
 const connectionParams={
     useNewUrlParser: true,
     useUnifiedTopology: true 
