@@ -10,7 +10,6 @@ app.use(cors());
 const port = process.env.REACT_APP_PORT;
 
 app.use('/api',require('./routes/route'));
-
 app.listen(port,()=>{
     console.log(`server running  on  ${port}`);
 })
