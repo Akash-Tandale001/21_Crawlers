@@ -21,9 +21,7 @@ form {
   padding-top: 2em;
   padding-bottom: 0em;
   color: black;
-  font-weight: bold;
   font-size: 17px;
-  background: transparent;
   font-weight: 400;
 }
 
@@ -39,25 +37,5 @@ li {
 }
 
 .ctop {
-  margin-top: 8em;
-}
-.col-4{
-  display: flex;
-}
-.col-4>img{
-  align-self: center;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-left: 27rem;
-  border-radius: 22px;
-  margin-top: -5rem;
-}
-.Box{
-  margin-top: 2rem;
-  align-items: center;
-  align-self: center;
-  display: flex;
-  flex-direction: column;
-  font-weight: bold;
+  margin-top: 5rem;
 }

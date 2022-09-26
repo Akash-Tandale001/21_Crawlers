@@ -58,12 +58,11 @@
                     <div className="container" id="container">
                         <div className="form-container sign-in-container">
                             <form action="#">
-                                <h5>Only For Admins and Approved StartUps!</h5>
+                                <h5 >Only For Admins and Approved StartUps!</h5>
                                 <h1>Sign in</h1>
-                                <span>Use your email</span>
-                                <input type="email" onChange={Input} value={user.email} placeholder="Email" name="email" />
-                                <input type="password" onChange={Input} value={user.password} placeholder="Password" name="password" />
-                                <a href='' >Forgot Password?</a>
+                                <input type="email" className='input1' onChange={Input} value={user.email} placeholder="Email" name="email" />
+                                <input type="password" className='input1' onChange={Input} value={user.password} placeholder="Password" name="password" />
+                                <a href='/forget' >Forgot Password?</a>
                                 <br />
                                 <button onClick={SendDataLogin}  className="btn">Sign In</button>
                             </form>
