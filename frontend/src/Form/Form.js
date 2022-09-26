@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Header from "../Header"
+import Header from "../NavBar/Header"
 import "./form1.css"
 function Form() {
 

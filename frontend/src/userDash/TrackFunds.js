@@ -2,7 +2,7 @@ import {React, useState} from "react";
 import { FaCalendarCheck } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import { useEffect } from "react";
-import "../adminDashboard.css"
+import "../AdminDash/adminDashboard.css"
 
 function TrackFunds() {
     const [dataa, setData] = useState();

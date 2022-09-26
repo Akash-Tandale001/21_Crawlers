@@ -1,8 +1,8 @@
 import Form from "./Form/Form";
-import LandingPage from "./Landing_Page";
+import LandingPage from "./HomePage/Landing_Page";
 import { BrowserRouter, Routes, Route} from "react-router-dom"
 import Login from "./Login/Login"
-import AdminDashBoard from "./AdminDashboard"
+import AdminDashBoard from "./AdminDash/AdminDashboard";
 import Progress from "./userDash/Progress"
 import ApplyFunds from "./userDash/ApplyFunds"
 import TrackFunds from "./userDash/TrackFunds"
