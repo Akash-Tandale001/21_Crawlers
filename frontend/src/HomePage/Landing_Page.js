@@ -13,7 +13,7 @@ function LandingPage() {
             <div className="col-4">
               <img
                 src="https://www.thebusinessrankers.com/wp-content/uploads/2020/10/startup.jpeg"
-                width="300"
+                width="400"
                 height="250"
                 className="card-img-top"
               />

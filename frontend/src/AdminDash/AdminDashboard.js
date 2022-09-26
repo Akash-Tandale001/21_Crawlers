@@ -127,17 +127,23 @@ function AdminDashBoard() {
         <h5>City: {props.i.city}</h5>
         <h5>State: {props.i.state}</h5>
         <h5>Startup Description: {props.i.startupDesc}</h5>
-        <button className="Status" onClick={() => handleApprove(props.i)}>Approve</button><br />
-        <button className="Status" onClick={() => handleReject(props.i)}>Reject</button><br />
+        <div className="yui">
+        <button className="button1" id="yu" onClick={() => handleApprove(props.i)}>Approve</button>
+        <button className="button1" id="ui"onClick={() => handleReject(props.i)}>Reject</button>
+        </div>
         </div>
     }
 
-    return <div>
+    return <div className="bgimage">
 
-    <nav style={{ background: "linear-gradient(#FFFFFF, #9198e5)" }} className="navbar navbar-light navbar-expand-lg py-0"> 
+    <nav  className="navbar navbar-light navbar-expand-lg py-0"> 
          <ul className="navbar-nav ms-auto pe-3 ">
+         <li className="nav-item">
+                <a className='loginButton' ><img className = "upstartlogo1"src="https://cdn-icons-png.flaticon.com/512/3153/3153346.png"/></a>
+            </li>
         <li className="nav-item">
-            <NavLink to="" className="nav-link shadow bg-primary rounded text-light m-2" onClick={logOut}>LogOut</NavLink>
+        
+            <button to="" id ="logout"className="button1" onClick={logOut}>Log Out</button>
         </li>
       </ul>
   

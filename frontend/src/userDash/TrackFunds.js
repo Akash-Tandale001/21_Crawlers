@@ -3,7 +3,7 @@ import { FaCalendarCheck } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import { useEffect } from "react";
 import "../AdminDash/adminDashboard.css"
-
+import "./applyfund.css"
 function TrackFunds() {
     const [dataa, setData] = useState();
 

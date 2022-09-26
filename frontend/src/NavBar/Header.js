@@ -8,6 +8,9 @@ function Header() {
     <nav className="navbar navbar-light navbar-expand-lg">
         <ul className="navbar-nav ms-auto ">
             <li className="nav-item">
+                <a className='loginButton' href="/" ><img className = "upstartlogo"src="https://cdn-icons-png.flaticon.com/512/3153/3153346.png"/></a>
+            </li>
+            <li className="nav-item">
                 <Button className='loginButton' href="/login">Login</Button>
             </li>
             <li className="nav-item">
