@@ -35,7 +35,7 @@ exports.login = async (req, res, next) => {
     if (!user) {
       res.status(400).json({ error: "invalide credentials" });
     }
-    const isMatch = await await bcrypt.compare(password, user.password);
+    const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) {
       res.status(401).json({ error: "invalide credentials" });
@@ -57,6 +57,16 @@ exports.login = async (req, res, next) => {
         }
       }
     );
+  } catch (error) {
+    res.status(400).json({ status: "error", error: error.message });
+  }
+};
+
+exports.forgotPassword = async () => {
+  const { email, password, confirmPassword } = req.body;
+  try {
+    await User.updateOne({ email: email }, { $set: { password: password } });
+    res.status(200).json({ status: "ok" });
   } catch (error) {
     res.status(400).json({ status: "error", error: error.message });
   }
