@@ -27,9 +27,11 @@ function ApplyFunds() {
             alert("Please Login first!");
             window.location.assign("/login");
         }
-        const response = await fetch('http://localhost:1337/api/find', {
+        let token = localStorage.getItem('token');
+        const response = await fetch('https://crawler-backend.vercel.app/api/findUser', {
             headers: {
                 'Content-Type': 'application/json',
+                'Authentication': token,
             },
             method: 'POST',
             body: JSON.stringify({

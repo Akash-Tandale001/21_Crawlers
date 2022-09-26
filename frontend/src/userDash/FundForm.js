@@ -12,10 +12,11 @@ function FundForm() {
 
     async function sendFundApplication(e) {
         e.preventDefault();
-
-        const response = await fetch('http://localhost:1337/api/sendFundApplication', {
+        let token = localStorage.getItem('token');
+        const response = await fetch('https://crawler-backend.vercel.app/api/sendFundApplication', {
 			method: 'POST',
 			headers: {
+                'Authentication': token,
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({

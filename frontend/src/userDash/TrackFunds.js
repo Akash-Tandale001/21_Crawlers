@@ -23,8 +23,10 @@ function TrackFunds() {
             alert("Please Login first!");
             window.location.assign("/login");
         }
-        const response = await fetch('http://localhost:1337/api/findFundRequest', {
+        let token = localStorage.getItem('token');
+        const response = await fetch('https://crawler-backend.vercel.app/api/findFundRequest', {
             headers: {
+                'Authentication': token,
                 'Content-Type': 'application/json',
             },
             method: 'POST',

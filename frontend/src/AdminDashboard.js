@@ -22,10 +22,12 @@ function AdminDashBoard() {
         let pass = generateRandomPassword(name);
         let userType = "user"
         let dateCreated = await Date.now();
-        console.log("AAA");
-        const response = await fetch('http://localhost:1337/api/createStartupUser', {
+        
+        let token = localStorage.getItem('token');
+        const response = await fetch('https://crawler-backend.vercel.app/api/createStartupUser', {
 			method: 'POST',
 			headers: {
+                'Authentication': token,
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({
@@ -71,10 +73,11 @@ function AdminDashBoard() {
 
     async function updateApprovalStatus(props, status) {
         let email = props;
-
-        const response = await fetch('http://localhost:1337/api/updateApprovalStatus', {
+        let token = localStorage.getItem('token');
+        const response = await fetch('https://crawler-backend.vercel.app/api/updateApprovalStatus', {
 			method: 'PUT',
 			headers: {
+                'Authentication': token,
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({
@@ -102,7 +105,8 @@ function AdminDashBoard() {
 }
 
     async function getAllApplications() {
-        const res = await fetch("http://localhost:1337/api/fetchApplications", {method: "GET"});
+        let token = localStorage.getItem('token');
+        const res = await fetch("https://crawler-backend.vercel.app/api/fetchApplications", {method: "GET"});
 
         const data = await res.json();
         console.log(data.applications)
