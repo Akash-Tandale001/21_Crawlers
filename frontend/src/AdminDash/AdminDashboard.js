@@ -24,7 +24,7 @@ function AdminDashBoard() {
         let dateCreated = await Date.now();
         
         let token = localStorage.getItem('token');
-        const response = await fetch('https://crawler-backend.vercel.app/api/createStartupUser', {
+        const response = await fetch('https://crawler-backend.vercel.app/api/auth/createStartupUser', {
 			method: 'POST',
 			headers: {
                 'Authentication': token,
