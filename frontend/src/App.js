@@ -1,6 +1,6 @@
 import './App.css';
 import * as React from "react";
-import LandingPage from "./Landing_Page";
+import LandingPage from "./Home/Landing_Page";
 import { BrowserRouter, Routes, Route} from "react-router-dom"
 function App() {
   return (
@@ -8,7 +8,6 @@ function App() {
       <BrowserRouter>
       <Routes>
       <Route path="/" element={<LandingPage />} />
-      Crawler
       </Routes>
       </BrowserRouter>
     </div>
