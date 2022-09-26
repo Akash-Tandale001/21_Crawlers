@@ -15,11 +15,13 @@ function Form() {
 
     async function sendApplication(e) {
         e.preventDefault();
+        let token = localStorage.getItem('token');
 
-        const response = await fetch('http://localhost:1337/api/sendApplication', {
+        const response = await fetch('https://crawler-backend.vercel.app/api/sendApplication', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
+                'Authentication': token,
 			},
 			body: JSON.stringify({
 				name,

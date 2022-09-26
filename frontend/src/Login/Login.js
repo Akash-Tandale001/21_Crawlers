@@ -5,12 +5,11 @@
     const Login = () => {
 
         const [user, setUser] = useState({
-            pass: "", email: "",
+            password: "", email: "",
         });
 
         let name, value;
         const Input = (e) => {
-            console.log(e);
             name = e.target.name;
             value = e.target.value;
 
@@ -20,16 +19,17 @@
         const SendDataLogin = async (e) => {
             e.preventDefault();
 
-            const { email, pass } = user;
+            const { email, password } = user;
 
-            const res = await fetch("http://localhost:1337/api/login", {
+            const res = await fetch("https://crawler-backend.vercel.app/api/auth/login", {
                 method: "POST", headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    email, pass
+                    email, password
                 })
             });
 
             const data = await res.json();
+            localStorage.setItem('token',data.token)
             console.log(data)
 
             if (res.status === 400 || !data) {
@@ -66,7 +66,7 @@
                             <h1>Sign in</h1>
                             <span>Use your email</span>
                             <input type="email" placeholder="Email" onChange={Input} id="email" value={user.email} name="email" />
-                            <input type="password" placeholder="Password" onChange={Input} id="pass" value={user.pass} name="pass" />
+                            <input type="password" placeholder="Password" onChange={Input} id="pass" value={user.password} name="password" />
                             <br />
                             <button onClick={SendDataLogin} className="btn">Sign In</button>
                         </form>
