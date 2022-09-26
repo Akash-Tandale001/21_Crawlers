@@ -19,12 +19,12 @@ function AdminDashBoard() {
         let phone = props.contact;
         let city = props.city;
         let email = props.email;
-        let pass = generateRandomPassword(name);
+        let password = generateRandomPassword(name);
         let userType = "user"
         let dateCreated = await Date.now();
         
         let token = localStorage.getItem('token');
-        const response = await fetch('https://crawler-backend.vercel.app/api/createStartupUser', {
+        const response = await fetch('https://crawler-backend.vercel.app/api/auth/createStartupUser', {
 			method: 'POST',
 			headers: {
                 'Authentication': token,
@@ -35,14 +35,14 @@ function AdminDashBoard() {
 				phone,
                 city,
                 email,
-                pass,
+                password,
                 userType,
                 dateCreated,
 			}),
 		})
 
 		const data = await response.json()
-
+        console.log(data)
         if(data.status === "ok")
         {
             window.alert("User Created!");
@@ -91,14 +91,11 @@ function AdminDashBoard() {
     
     function handleApprove(props) {
         updateApprovalStatus(props.email, "Approved");
-        createStartupUser(props);
-
-        window.location = `mailto:${props.email}?cc=pramitbhatia25@gmail.com.&bcc=harshitmundhra2@gmail.com&subject=Application%status&body=Your%20Proposal%20for%20startup%20named%20${props.startupName}%20has%20been%20accepted.%0AYour%20Login%20credentials%20are%20as%20follows%20-:.%0AEmailId:%20${props.email}%0APassword:%20${props.name}@123`;        
+        createStartupUser(props);     
         // sendEmail(random_password);
     }
 
-    function handleReject(props) {
-        window.location = `mailto:${props.email}?cc=pramitbhatia25@gmail.com.&bcc=harshitmundhra2@gmail.com&subject=Application%status&body=Your%20Proposal%20for%20startup%20named%20${props.startupName}%20has%20been%20rejected.`;        
+    function handleReject(props) {     
         updateApprovalStatus(props.email, "Rejected");
         window.alert("Updated!");
         window.location.assign("/adminDashboard");
