@@ -1,4 +1,5 @@
 # 21_Crawlers_backend
+
 This is backend application for Upstart created using Node.Js
 
 ## Tools used :
@@ -7,22 +8,141 @@ This is backend application for Upstart created using Node.Js
 - MongoDB Database
 - Bcryptjs for passwords protection
 
-## API Endpoint :
+## API Reference
+#### Main URl 
+```http
+  https://crawler-backend.vercel.app/
+```
 
-### /api/auth/login :
+#### Login Endpoint
 
-### /api/auth/forgotPassword :
+```http
+  POST /api/auth/login
+```
 
-### /api/auth/createStartupUser :
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `email` | `string` | *Required* |
+| `password` | `string` | *Required* |
 
-### /api/fetchApplications :
 
-### /api/sendApplication :
+#### ForgotPassword :
 
-### /api/sendFundApplication :
+```http
+  PUT /api/auth/forgotPassword
+```
 
-### /api/updateApprovalStatus :
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `email` | `string` | *Required* |
+| `password` | `string` | *Required* |
+| `confirmPassword` | `string` | *Required* |
 
-### /api/findFundRequest :
 
-### /api/findUser :
+### Create Startup User :
+
+```http
+  POST /auth/createStartupUser
+```
+
+```
+header details => Authentication : <Token>
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `name` | `string` | *Required* |
+| `phone` | `string` | *Required* |
+| `city` | `string` | *Required* |
+| `email` | `string` | *Required* |
+| `password` | `string` | *Required* |
+| `userType` | `string` | *Required* |
+
+### Fetch Applications :
+
+```http
+  GET /api/fetchApplications
+```
+
+```
+header details => Authentication : <Token>
+```
+
+### Send Application :
+```http
+  POST /api/sendApplication
+```
+
+```
+header details => Authentication : <Token>
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `name` | `string` | *Required* |
+| `email` | `string` | *Required* |
+| `contact` | `string` | *Required* |
+| `city` | `string` | *Required* |
+| `state` | `string` | *Required* |
+| `startupName` | `string` | *Required* |
+| `problemSolving` | `string` | *Required* |
+| `startupDesc` | `string` | *Required* |
+| `approvalStatus` | `string` | *Not Required* |
+
+### Send Fund Application :
+```http
+  POST /api/sendFundApplication
+```
+
+```
+header details => Authentication : <Token>
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `name` | `string` | *Required* |
+| `phone` | `string` | *Required* |
+| `contact` | `string` | *Required* |
+| `startupName` | `string` | *Required* |
+| `fundsRequired` | `string` | *Required* |
+| `reason` | `string` | *Required* |
+
+### Update ApprovalStatus :
+```http
+  PUT /api/updateApprovalStatus
+```
+
+```
+header details => Authentication : <Token>
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `email` | `string` | *Required* |
+| `approvalStatus` | `string` | *Required* |
+
+### Find FundRequest :
+```http
+  POST /api/findFundRequest
+```
+
+```
+header details => Authentication : <Token>
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `email` | `string` | *Required* |
+
+### Find User :
+```http
+  POST /api/findUser
+```
+
+```
+header details => Authentication : <Token>
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `email` | `string` | *Required* |

@@ -8,4 +8,4 @@
 - Harshu467
 - 1976-Harshit-Mundhra
 - Akash-Tandale001
-- akashtandale(Akash has 2 github accounts and he has commited some part of code by mistakely by other account but he has reverted those changes and we have talked to Ayan Sayyad)
+- akashtandale (Akash has 2 github accounts and he has commited some part of code by mistakely by other account but he has reverted those changes and we have talked to Ayan Sayyad)

@@ -92,7 +92,8 @@ exports.findFundRequest = async (req, res, next) => {
     const verifytoken = jwt.verify(token, process.env.REACT_APP_JWT_SECRETKEY);
     if (!verifytoken)
       return res.status(401).json({ error: "Unauthorized request" });
-
+      
+    const email = req.body.email;
     const userLogin = await FundApplication.findOne({ email: email });
     if (userLogin) {
       res.json({ status: "ok", user: userLogin });
@@ -110,6 +111,7 @@ exports.findUser = async (req, res, next) => {
     if (!verifytoken)
       return res.status(401).json({ error: "Unauthorized request" });
 
+    const email = req.body.email;
     const userLogin = await User.findOne({ email: email });
     if (userLogin) {
       res.json({ status: "ok", user: userLogin });

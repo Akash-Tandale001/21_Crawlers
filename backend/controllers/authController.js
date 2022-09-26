@@ -8,7 +8,7 @@ exports.createStartupUser = async (req, res, next) => {
     const verifytoken = jwt.verify(token, process.env.REACT_APP_JWT_SECRETKEY);
     if (!verifytoken)
       return res.status(401).json({ error: "Unauthorized request" });
-
+    let dateCreated = new Date();
     await User.create({
       name: req.body.name,
       phone: req.body.phone,
@@ -16,7 +16,7 @@ exports.createStartupUser = async (req, res, next) => {
       email: req.body.email,
       password: req.body.password,
       userType: req.body.userType,
-      dateCreated: req.body.dateCreated,
+      dateCreated: dateCreated,
     });
     res.json({ status: "ok" });
   } catch (err) {
@@ -65,6 +65,9 @@ exports.login = async (req, res, next) => {
 exports.forgotPassword = async () => {
   const { email, password, confirmPassword } = req.body;
   try {
+    if(password != confirmPassword){
+      res.status(401).json({status:"error" , message:"Password and Confirm Password is not matching"})
+    }
     await User.updateOne({ email: email }, { $set: { password: password } });
     res.status(200).json({ status: "ok" });
   } catch (error) {
