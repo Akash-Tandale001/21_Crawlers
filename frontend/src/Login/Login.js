@@ -1,4 +1,4 @@
-    import './login.css';
+    import './Login.css';
     import { useState } from "react"
     import Header from "../Header"
 
