@@ -1,6 +1,7 @@
 const User = require("../models/userModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const nodemailer = require("nodemailer");
 
 exports.createStartupUser = async (req, res, next) => {
   try {
@@ -18,7 +19,31 @@ exports.createStartupUser = async (req, res, next) => {
       userType: req.body.userType,
       dateCreated: dateCreated,
     });
-    res.json({ status: "ok" });
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      service: "gmail",
+      auth: {
+        user: process.env.REACT_APP_GMAIL_ID ,
+        pass: process.env.REACT_APP_GMAIL_PASSWORD ,
+      },
+    });
+  
+    const mailOption = {
+      from: process.env.REACT_APP_GMAIL_ID,
+      to: req.body.email,
+      subject: `Login credentials upstart `,
+      text: `Hi,${req.body.name}\n \t Welcome to Upstart family your application is accepted. So please use below login details for login in upstart and up your startup\n Username : ${req.body.email} \n Password : ${req.body.password}\n\nThankyou...!`,
+    };
+    transporter.sendMail(mailOption, (error, info) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log("Email sent : " + info.response);
+      }
+      res.json({ status: "success" , message:"Email will recevied in 15min with credentials details"});
+    });
   } catch (err) {
     res.status(400).json({ status: "error", error: err.message });
   }
@@ -74,3 +99,18 @@ exports.forgotPassword = async () => {
     res.status(400).json({ status: "error", error: error.message });
   }
 };
+
+exports.deleteUser = async (req,res) => {
+  const { email} = req.body;
+  try {
+    const user = await User.findOne({email: email});
+    if(!user){
+      res.status(401).json({status:"error" , message:"No user is present"})
+    }
+    await User.deleteOne({ email: email })
+    res.status(200).json({ status: "ok" });
+  } catch (error) {
+    res.status(400).json({ status: "error", error: error.message });
+  }
+};
+
