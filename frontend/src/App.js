@@ -1,17 +1,25 @@
-import './App.css';
-import * as React from "react";
-import LandingPage from "./Home/Landing_Page";
+import Form from "./Form/Form";
+import LandingPage from "./Landing_Page";
 import { BrowserRouter, Routes, Route} from "react-router-dom"
-import Login from './Login/Login';
+import Login from "./Login/Login"
+import AdminDashBoard from "./AdminDashboard"
+import Progress from "./userDash/Progress"
+import ApplyFunds from "./userDash/ApplyFunds"
+import TrackFunds from "./userDash/TrackFunds"
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
       <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/login" element={<Login />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/apply" element={<Form />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/adminDashboard" element={<AdminDashBoard />} />
+        <Route path="/progress" element={<Progress/>} />
+        <Route path="/applyFunds" element={<ApplyFunds />} />
+        <Route path="/trackFunds" element={<TrackFunds />} />
       </Routes>
-      </BrowserRouter>
+    </BrowserRouter>
     </div>
   );
 }
