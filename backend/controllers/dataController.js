@@ -32,7 +32,7 @@ exports.sendApplication = async (req, res, next) => {
 };
 exports.sendFundApplication = async (req, res, next) => {
   try {
-    let token = req.headers.authorization;
+    let token = req.headers.authentication;
     const verifytoken = jwt.verify(token, process.env.REACT_APP_JWT_SECRETKEY);
     if (!verifytoken)
       return res.status(401).json({ error: "Unauthorized request" });
@@ -52,7 +52,7 @@ exports.sendFundApplication = async (req, res, next) => {
 };
 exports.updateApprovalStatus = async (req, res, next) => {
   try {
-    let token = req.headers.authorization;
+    let token = req.headers.authentication;
     const verifytoken = jwt.verify(token, process.env.REACT_APP_JWT_SECRETKEY);
     if (!verifytoken)
       return res.status(401).json({ error: "Unauthorized request" });
@@ -71,7 +71,7 @@ exports.updateApprovalStatus = async (req, res, next) => {
 };
 exports.fetchApplications = async (req, res, next) => {
   try {
-    let token = req.headers.authorization;
+    let token = req.headers.authentication;
     const verifytoken = jwt.verify(token, process.env.REACT_APP_JWT_SECRETKEY);
     if (!verifytoken)
       return res.status(401).json({ error: "Unauthorized request" });
@@ -88,7 +88,7 @@ exports.fetchApplications = async (req, res, next) => {
 };
 exports.findFundRequest = async (req, res, next) => {
   try {
-    let token = req.headers.authorization;
+    let token = req.headers.authentication;
     const verifytoken = jwt.verify(token, process.env.REACT_APP_JWT_SECRETKEY);
     if (!verifytoken)
       return res.status(401).json({ error: "Unauthorized request" });
@@ -106,7 +106,7 @@ exports.findFundRequest = async (req, res, next) => {
 };
 exports.findUser = async (req, res, next) => {
   try {
-    let token = req.headers.authorization;
+    let token = req.headers.authentication;
     const verifytoken = jwt.verify(token, process.env.REACT_APP_JWT_SECRETKEY);
     if (!verifytoken)
       return res.status(401).json({ error: "Unauthorized request" });

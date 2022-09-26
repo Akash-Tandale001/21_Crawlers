@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 
 exports.createStartupUser = async (req, res, next) => {
   try {
-    let token = req.headers.authorization;
+    let token = req.headers.authentication;
     const verifytoken = jwt.verify(token, process.env.REACT_APP_JWT_SECRETKEY);
     if (!verifytoken)
       return res.status(401).json({ error: "Unauthorized request" });
