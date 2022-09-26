@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Header from "../Header"
+import Header from "../NavBar/Header"
 import "./form1.css"
 function Form() {
 
@@ -53,7 +53,7 @@ function Form() {
     <Header />
         <form className='applyForm' action="/login" method="POST" onSubmit={sendApplication}>
             <br />
-                Your name:<br /><br /> 
+                Your name:<br /> <br />
             <input value={name} onChange={(e) => setName(e.target.value)} type="text" name="name" required />
             <br /> <br />
                 Your email:<br /><br />

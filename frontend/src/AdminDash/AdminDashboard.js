@@ -106,8 +106,11 @@ function AdminDashBoard() {
 
     async function getAllApplications() {
         let token = localStorage.getItem('token');
-        const res = await fetch("https://crawler-backend.vercel.app/api/fetchApplications", {method: "GET"});
-
+        const res = await fetch("https://crawler-backend.vercel.app/api/fetchApplications", {method: "GET",headers: {
+            'Authentication': token,
+            'Content-Type': 'application/json',
+        }});
+        
         const data = await res.json();
         console.log(data.applications)
         setApplications(data.applications);

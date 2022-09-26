@@ -1,6 +1,6 @@
     import './Login.css';
     import { useState } from "react"
-    import Header from "../Header"
+    import Header from "../NavBar/Header"
 
     const Login = () => {
 
@@ -52,35 +52,32 @@
         }
 
         return (
-            <div className="loginForm">
-                <Header />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <div class="container" id="container">
-                    <div class="form-container sign-in-container">
-                        <form action="#">
-                            <h5>Only For Admins and Approved StartUps!</h5>
-                            <h1>Sign in</h1>
-                            <span>Use your email</span>
-                            <input type="email" placeholder="Email" onChange={Input} id="email" value={user.email} name="email" />
-                            <input type="password" placeholder="Password" onChange={Input} id="pass" value={user.password} name="password" />
-                            <br />
-                            <button onClick={SendDataLogin} className="btn">Sign In</button>
-                        </form>
-                    </div>
-                    <div class="overlay-container">
-                        <div class="overlay">
-                            <div class="overlay-panel overlay-right">
-                                <h1>Hey there, startup!</h1>
-                                <p>Enter your details and start your journey with GUSSEC!</p>
+            <>
+            <Header/>
+                <div className='loginForm'>
+                    <div className="container" id="container">
+                        <div className="form-container sign-in-container">
+                            <form action="#">
+                                <h5 >Only For Admins and Approved StartUps!</h5>
+                                <h1>Sign in</h1>
+                                <input type="email" className='input1' onChange={Input} value={user.email} placeholder="Email" name="email" />
+                                <input type="password" className='input1' onChange={Input} value={user.password} placeholder="Password" name="password" />
+                                <a href='/forget' >Forgot Password?</a>
+                                <br />
+                                <button onClick={SendDataLogin}  className="btn">Sign In</button>
+                            </form>
+                        </div>
+                        <div className="overlay-container">
+                            <div className="overlay">
+                                <div className="overlay-panel overlay-right">
+                                    <h1>Hey there, startup!</h1>
+                                    <p>Enter your details and start your journey with Upstart</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </>
         );
     };
 

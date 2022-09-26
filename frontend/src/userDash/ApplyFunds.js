@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import PerDashboard from "./perDashboard";
 import RevenueGrowth from "./revenueGrowth";
 import { useEffect } from "react";
-import "../adminDashboard.css"
+import "../AdminDash/adminDashboard.css"
 import FundForm from "./FundForm"
 import "./applyfund.css";
 
