@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./landing_page.css";
-import Header from "./Header";
+import Header from "../NavBar/Header";
 
 function LandingPage() {
   return (
