@@ -58,7 +58,7 @@ function ApplyFunds() {
                             <NavLink to="/trackFunds" className="nav-link shadow bg-primary rounded text-light m-2">Track Fund Status</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink to="" className="nav-link shadow bg-primary rounded text-light m-2" onClick={logOut}>LogOut</NavLink>
+                            <NavLink to="" className="nav-link shadow bg-primary rounded text-light m-2" onClick={logOut}>Log Out</NavLink>
                         </li>
                     </ul>
                 </nav>
