@@ -94,7 +94,7 @@ exports.findFundRequest = async (req, res, next) => {
       return res.status(401).json({ error: "Unauthorized request" });
       
     const email = req.body.email;
-    const userLogin = await FundApplication.findOne({ email: email });
+    const userLogin = await FundApplication.find({ email: email });
     if (userLogin) {
       res.json({ status: "ok", user: userLogin });
     } else {

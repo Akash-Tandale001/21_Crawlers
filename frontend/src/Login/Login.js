@@ -29,10 +29,10 @@
             });
 
             const data = await res.json();
-            localStorage.setItem('token',data.token)
+           
             console.log(data)
 
-            if (res.status === 400 || !data) {
+            if (res.status === 400 || data.error === "invalide credentials" || res.status === 500) {
                 window.alert("Invalid Credentials!");
                 console.log("Invalid Credentials!");
                 window.location.href = "/login"
@@ -41,6 +41,8 @@
                 window.alert("Login Successful");
                 console.log("Login Successful");
                 localStorage.setItem("email", email);
+                localStorage.setItem('token',data.token)
+                localStorage.setItem('userType',data.userType)
                 if(data.userType === "admin") {
                     window.location.href = "/adminDashboard"
                 }
