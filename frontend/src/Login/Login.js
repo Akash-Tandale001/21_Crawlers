@@ -62,8 +62,8 @@
                             <form action="#">
                                 <h5 >Only For Admins and Approved StartUps!</h5>
                                 <h1>Sign in</h1>
-                                <input type="email" className='input1' onChange={Input} value={user.email} placeholder="Email" name="email" />
-                                <input type="password" className='input1' onChange={Input} value={user.password} placeholder="Password" name="password" />
+                                <input style={{color : "black"}} type="email" className='input1' onChange={Input} value={user.email} placeholder="Email" name="email" />
+                                <input style={{color : "black"}} type="password" className='input1' onChange={Input} value={user.password} placeholder="Password" name="password" />
                                 <a href='/forget' >Forgot Password?</a>
                                 <br />
                     
