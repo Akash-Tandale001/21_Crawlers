@@ -63,7 +63,7 @@ exports.login = async (req, res, next) => {
     const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) {
-      res.status(401).json({ error: "invalide credentials" });
+      res.status(400).json({ error: "invalide credentials" });
     }
     jwt.sign(
       { user },
@@ -94,7 +94,32 @@ exports.forgotPassword = async () => {
       res.status(401).json({status:"error" , message:"Password and Confirm Password is not matching"})
     }
     await User.updateOne({ email: email }, { $set: { password: password } });
-    res.status(200).json({ status: "ok" });
+
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      service: "gmail",
+      auth: {
+        user: process.env.REACT_APP_GMAIL_ID ,
+        pass: process.env.REACT_APP_GMAIL_PASSWORD ,
+      },
+    });
+  
+    const mailOption = {
+      from: process.env.REACT_APP_GMAIL_ID,
+      to: req.body.email,
+      subject: `Login credentials upstart `,
+      text: `Hi,${req.body.name}\n \t Password has been successfully changed `,
+    };
+    transporter.sendMail(mailOption, (error, info) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log("Email sent : " + info.response);
+      }
+      res.status(200).json({ status: "success" , message:"Password has been successfully changed"});
+    });
   } catch (error) {
     res.status(400).json({ status: "error", error: error.message });
   }
