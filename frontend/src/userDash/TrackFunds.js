@@ -5,19 +5,17 @@ import { useEffect } from "react";
 import "../AdminDash/adminDashboard.css";
 import "./applyfund.css";
 
-
 function ApplicationCard(props) {
   return (
-    <div className="AppCard">
-        <div>
-      <h5>Name: {props.i.name}</h5>
-      <h5>Email: {props.i.email}</h5>
-      <h5>contact: {props.i.contact}</h5>
-      <h5>startupName: {props.i.startupName}</h5>
-      <h5>fundsRequired: {props.i.fundsRequired}</h5>
-      <h5>reason: {props.i.reason}</h5>
-
-        </div>
+    <div style={{backgroundColor : "#1f1f38" , display:"flex" , flexDirection : "row" , alignItems: "center"}}className="AppCard">
+      <div style={{backgroundColor : "#1f1f38" , display:"flex" , flexDirection : "column" , paddingLeft : "9rem"}}>
+        <h5>Name: {props.i.name}</h5>
+        <h5>Email: {props.i.email}</h5>
+        <h5>contact: {props.i.contact}</h5>
+        <h5>startupName: {props.i.startupName}</h5>
+        <h5>fundsRequired: {props.i.fundsRequired}</h5>
+        <h5>reason: {props.i.reason}</h5>
+      </div>
     </div>
   );
 }
@@ -66,7 +64,7 @@ function TrackFunds() {
       <nav className="navbar navbar-light navbar-expand-lg py-0">
         <ul className="navbar-nav ms-auto pe-3 ">
           <li className="nav-item">
-            <NavLink
+            <NavLink 
               to="/applyfunds"
               className="nav-link shadow bg-primary rounded text-light m-2"
             >
@@ -87,14 +85,14 @@ function TrackFunds() {
               className="nav-link shadow bg-primary rounded text-light m-2"
               onClick={logOut}
             >
-              LogOut
+              Log Out
             </NavLink>
           </li>
         </ul>
       </nav>
 
       <br />
-      <h1>Track Fund Request</h1>
+      <h1 style={{marginLeft : "32rem"}}>Track Fund Request</h1>
       <br />
       {data?.length === 0 ? (
         <>
