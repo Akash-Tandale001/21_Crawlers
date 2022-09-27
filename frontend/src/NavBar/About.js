@@ -73,7 +73,7 @@ const Input = (e) => {
                 </div>
 
             <div style={{marginTop :"2rem"}} className="text-center text-md-left">
-                <a className="btn btn-primary"  onclick={sendData}>Send</a>
+                <a className="btn btn-primary"  onClick={sendData} >Send</a>
             </div>
             </form>
 
