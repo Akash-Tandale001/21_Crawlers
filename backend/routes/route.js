@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { createStartupUser, login ,forgotPassword,deleteUser } = require("../controllers/authController");
+const { createStartupUser, login ,forgotPassword,deleteUser ,contactus} = require("../controllers/authController");
 const {
   applyApplication,
   sendApplication,
@@ -22,6 +22,7 @@ router.route("/fetchApplications").get(fetchApplications);
 router.route("/findFundRequest").post(findFundRequest);
 router.route("/findUser").post(findUser);
 router.route("/deleteUser").delete(deleteUser);
+router.route("/contactus").post(contactus);
 
 
 module.exports = router;

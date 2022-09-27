@@ -139,3 +139,37 @@ exports.deleteUser = async (req,res) => {
   }
 };
 
+exports.contactus = async (req,res) => {
+  const {name, email ,message } = req.body;
+  try {
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      service: "gmail",
+      auth: {
+        user: process.env.REACT_APP_GMAIL_ID ,
+        pass: process.env.REACT_APP_GMAIL_PASSWORD ,
+      },
+    });
+  
+    const mailOption = {
+      from: process.env.REACT_APP_GMAIL_ID ,
+      to: process.env.REACT_APP_GMAIL_ID,
+      subject: `Message from ${name} ,${email} `,
+      text: message,
+    };
+    transporter.sendMail(mailOption, (error, info) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log("Email sent : " + info.response);
+      }
+      res.status(200).json({ status: "success" , message:"Email has been send"});
+    });
+
+  } catch (error) {
+    res.status(400).json({ status: "error", error: error.message });
+  }
+};
+
