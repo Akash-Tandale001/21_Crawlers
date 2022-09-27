@@ -16,6 +16,9 @@ function Header() {
             <li className="nav-item">
                 <Button className='applyButton' href="/apply">Register</Button>
             </li>
+            <li className="nav-item">
+                <Button className='applyButton' href="/about">Contact Us</Button>
+            </li>
         </ul>
 </nav>
 
