@@ -8,9 +8,12 @@ input{
     width: 200px;
     height: 5px; 
 }
-
+.applyForm{
+    background-color: #1f1f38;
+}
 select{
     border-radius: 25px;
+    color: black;
     border: 2px solid #73AD21;
     padding: 15px;
     width: 200px;
@@ -23,6 +26,8 @@ select{
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
+    margin-left: 36rem;
+    width: 10rem;
 }
 
 input[type=radio] {

@@ -7,12 +7,16 @@ import Progress from "./userDash/Progress"
 import ApplyFunds from "./userDash/ApplyFunds"
 import TrackFunds from "./userDash/TrackFunds"
 import Forget from "./forgetpass/Forget"
+import About from "./NavBar/About"
+
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/about" element={<About />} />
+
         <Route path="/apply" element={<Form />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forget" element={<Forget/>} />

@@ -64,6 +64,7 @@
                                 <input type="password" className='input1' onChange={Input} value={user.password} placeholder="Password" name="password" />
                                 <a href='/forget' >Forgot Password?</a>
                                 <br />
+                    
                                 <button onClick={SendDataLogin}  className="btn">Sign In</button>
                             </form>
                         </div>
